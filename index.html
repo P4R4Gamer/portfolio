@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tino Meier — Webentwicklung</title>
+  <meta name="description" content="Tino Meier, Webentwicklung: Portfolio mit Projekten aus Frontend, kleinen Web-Apps und PWAs.">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo">Tino Meier</a>
+      <nav class="nav">
+        <a href="#projekte">Projekte</a>
+        <a href="#ueber-mich">Über mich</a>
+        <a href="#kontakt" class="nav__cta">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="eyebrow">Webentwicklung</p>
+        <h1>Ich baue Websites und kleine<br>Web-Apps, die sauber laufen.</h1>
+        <p class="hero__text">
+          Von responsiven Landingpages über kleine interaktive Tools bis zu
+          Apps mit echter Datenanbindung — hier ist eine Auswahl an Projekten,
+          die zeigt, wie ich arbeite.
+        </p>
+        <div class="hero__actions">
+          <a href="#projekte" class="btn btn--primary">Projekte ansehen</a>
+          <a href="https://github.com/P4R4Gamer" class="btn btn--ghost" target="_blank" rel="noopener">GitHub-Profil</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projekte">
+      <div class="container">
+        <p class="section-eyebrow">Ausgewählte Projekte</p>
+        <h2>Projekte</h2>
+
+        <div class="project-grid">
+
+          <article class="project project--featured">
+            <div class="project__media">
+              <img src="images/kassensturz.jpg" alt="Dashboard der Kassensturz-App mit Saldo, Diagramm und Kategorien" loading="lazy">
+              <span class="project__tag project__tag--live">Eigenes Projekt</span>
+            </div>
+            <div class="project__body">
+              <h3>Kassensturz</h3>
+              <p>
+                Ein für mich persönlich entwickeltes Finanz-Tool — installierbar als PWA
+                auf dem iPhone. Übersicht über Einnahmen/Ausgaben, Budgets pro Kategorie
+                und optionaler Bank-Sync über die GoCardless-Schnittstelle. Wird laufend
+                erweitert, unter anderem um Wochenaufgaben, Einkaufslisten und einen
+                Health-Tracker.
+              </p>
+              <ul class="project__stack">
+                <li>React</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>Dexie (IndexedDB)</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/P4R4Gamer/kassensturz" target="_blank" rel="noopener">Code ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--featured">
+            <div class="project__media">
+              <img src="images/nothrig.jpg" alt="Startseite der Streetwear-Marke Nothrig" loading="lazy">
+              <span class="project__tag">In Arbeit</span>
+            </div>
+            <div class="project__body">
+              <h3>Nothrig</h3>
+              <p>
+                Website für ein Streetwear-Label, das ich zusammen mit einem Freund seit der
+                Grundschule aufbaue. Noch ohne Feinschliff und weit vor dem Launch — dient
+                hier als Beispiel für eine Multi-Page-Site mit Shop-Vorschau und Warenkorb.
+              </p>
+              <ul class="project__stack">
+                <li>Eleventy</li><li>Nunjucks</li><li>Vanilla JS</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/P4R4Gamer/nothrig" target="_blank" rel="noopener">Code ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__media">
+              <img src="images/nordlicht-fotografie.jpg" alt="Startseite der Beispiel-Website Nordlicht Fotografie" loading="lazy">
+              <span class="project__tag">Beispielprojekt</span>
+            </div>
+            <div class="project__body">
+              <h3>Nordlicht Fotografie</h3>
+              <p>Responsive One-Page-Website für ein fiktives Fotostudio. Galerie mit Filter und Lightbox, reines HTML/CSS/JS ohne Framework.</p>
+              <ul class="project__stack">
+                <li>HTML</li><li>CSS</li><li>JavaScript</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/P4R4Gamer/nordlicht-fotografie" target="_blank" rel="noopener">Code ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__media">
+              <img src="images/fokus-timer.jpg" alt="Oberfläche des Fokus-Timers mit Pomodoro-Uhr und Aufgabenliste" loading="lazy">
+              <span class="project__tag">Beispielprojekt</span>
+            </div>
+            <div class="project__body">
+              <h3>Fokus-Timer</h3>
+              <p>Pomodoro-Timer mit gekoppelter Aufgabenliste. Sauber in Module aufgeteilt (Timer-Logik, Tasks, Storage), Dark Mode, alles im localStorage.</p>
+              <ul class="project__stack">
+                <li>Vanilla JS</li><li>CSS Grid</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/P4R4Gamer/fokus-timer" target="_blank" rel="noopener">Code ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__media">
+              <img src="images/fusion-2048.jpg" alt="Spielfeld des Zahlenpuzzles Fusion mit farbigen Kacheln" loading="lazy">
+              <span class="project__tag">Beispielprojekt</span>
+            </div>
+            <div class="project__body">
+              <h3>Fusion — Zahlenpuzzle</h3>
+              <p>Kleines Browserspiel im Stil von 2048, Spiellogik komplett selbst geschrieben. Touch-Wischen, Tastatursteuerung, animierte Kacheln.</p>
+              <ul class="project__stack">
+                <li>Vanilla JS</li><li>CSS-Animationen</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/P4R4Gamer/fusion-2048" target="_blank" rel="noopener">Code ansehen →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="ueber-mich">
+      <div class="container about__inner">
+        <div>
+          <p class="section-eyebrow">Über mich</p>
+          <h2>Was ich mache</h2>
+          <p>
+            Ich beschäftige mich mit Webentwicklung — von responsiven Websites bis zu
+            kleinen Tools und Apps, die einen echten Zweck erfüllen. Mir ist wichtig,
+            dass Code nachvollziehbar bleibt: klare Struktur, keine unnötigen
+            Abhängigkeiten, und ein Projekt sollte auch noch Sinn ergeben, wenn man
+            es nach Wochen wieder aufmacht.
+          </p>
+          <p>
+            Neben den Beispielprojekten hier arbeite ich an eigenen Sachen weiter —
+            teils für mich selbst, teils zusammen mit anderen.
+          </p>
+        </div>
+        <div class="skills">
+          <h3>Womit ich arbeite</h3>
+          <ul class="skills__list">
+            <li>HTML &amp; CSS</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>React</li>
+            <li>Vite</li>
+            <li>Tailwind CSS</li>
+            <li>Git &amp; GitHub</li>
+            <li>Node.js Basics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="container contact__inner">
+        <div>
+          <p class="section-eyebrow">Kontakt</p>
+          <h2>Lass uns reden.</h2>
+          <p>Bei Fragen zu einem der Projekte oder generell — meld dich einfach.</p>
+        </div>
+        <div class="contact__links">
+          <a href="mailto:tino.meier.tm@gmail.com" class="contact__link">
+            <span class="contact__label">E-Mail</span>
+            <span class="contact__value">tino.meier.tm@gmail.com</span>
+          </a>
+          <a href="https://github.com/P4R4Gamer" target="_blank" rel="noopener" class="contact__link">
+            <span class="contact__label">GitHub</span>
+            <span class="contact__value">github.com/P4R4Gamer</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Tino Meier</p>
+      <a href="#top">Nach oben ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
