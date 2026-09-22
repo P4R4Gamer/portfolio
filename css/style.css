@@ -79,36 +79,39 @@ body::before {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
 
-/* Seiten-Wrapper: braucht eine eigene Positionierung, damit der DNA-Hintergrund
-   (position: absolute; inset: 0) sich exakt an der tatsächlichen Seitenlänge
-   ausrichtet statt nur an der Höhe des sichtbaren Viewports. */
 .page {
   position: relative;
 }
 
-/* DNA-Doppelhelix: senkrechtes, gekacheltes SVG-Pattern, läuft über die
-   komplette Seitenlänge (nicht fixiert wie ein normaler Hintergrund).
+/* DNA-Doppelhelix: fix im Viewport zentriert, dreht sich optisch beim Scrollen.
+   Der "Dreh"-Effekt ist ein Barberpole-Trick: das SVG-Pattern selbst bewegt
+   sich per patternTransform schneller als der Rest der Seite (siehe main.js) —
+   dadurch wirkt es, als würde sich die Helix um die eigene Achse drehen.
    Der 3D-Effekt kommt daher, dass beide Stränge in viele kurze Segmente
    zerlegt sind, deren Deckkraft/Strichstärke von ihrer "Tiefe" abhängt —
    vorne breiter und heller, hinten dünner und blasser. */
 .dna-bg {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
-  right: 6%;
-  width: 160px;
+  left: 50%;
+  /* width bleibt exakt auf der Pattern-Kachelbreite (240px), damit sie sich
+     nicht horizontal wiederholt — "größer" kommt über scale(), das die
+     Kachel selbst hochskaliert statt sie zu duplizieren. */
+  width: 240px;
+  transform: translateX(-50%) scale(1.55);
   z-index: -1;
   pointer-events: none;
-  opacity: .85;
+  opacity: .8;
 }
 .dna-back { stroke: var(--ink-soft); }
 .dna-front { stroke: var(--accent); }
 .dna-rung { stroke: var(--accent); }
 
-:root[data-theme="light"] .dna-bg { opacity: .55; }
+:root[data-theme="light"] .dna-bg { opacity: .45; }
 
 @media (max-width: 760px) {
-  .dna-bg { width: 130px; right: 50%; transform: translateX(50%); opacity: .3; }
+  .dna-bg { transform: translateX(-50%) scale(1.1); opacity: .4; }
 }
 
 img { max-width: 100%; display: block; }
