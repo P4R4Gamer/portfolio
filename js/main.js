@@ -45,3 +45,27 @@ if (scrollHint) {
     scrollHint.style.opacity = window.scrollY > 80 ? '0' : '';
   }, { passive: true });
 }
+
+// Hintergrund-Spirale dreht sich mit dem Scroll-Fortschritt der ganzen Seite.
+// rAF-gedrosselt, damit der Scroll-Handler selbst leicht bleibt.
+const spiralSvg = document.querySelector('#tech-spiral svg');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (spiralSvg && !reduceMotion) {
+  let ticking = false;
+
+  const updateSpiral = () => {
+    const angle = window.scrollY * 0.12;
+    spiralSvg.style.transform = `rotate(${angle}deg)`;
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateSpiral);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateSpiral();
+}
