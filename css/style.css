@@ -79,32 +79,37 @@ body::before {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
 
-/* Spirale: fixiert über der ganzen Seite, dreht sich mit dem Scroll-Fortschritt
-   (siehe main.js). Bewusst monochrom und dünn, damit sie wie eine technische
-   Zeichnung wirkt statt wie Deko. */
-.tech-spiral {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Seiten-Wrapper: braucht eine eigene Positionierung, damit der DNA-Hintergrund
+   (position: absolute; inset: 0) sich exakt an der tatsächlichen Seitenlänge
+   ausrichtet statt nur an der Höhe des sichtbaren Viewports. */
+.page {
+  position: relative;
+}
+
+/* DNA-Doppelhelix: senkrechtes, gekacheltes SVG-Pattern, läuft über die
+   komplette Seitenlänge (nicht fixiert wie ein normaler Hintergrund).
+   Der 3D-Effekt kommt daher, dass beide Stränge in viele kurze Segmente
+   zerlegt sind, deren Deckkraft/Strichstärke von ihrer "Tiefe" abhängt —
+   vorne breiter und heller, hinten dünner und blasser. */
+.dna-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 6%;
+  width: 160px;
+  z-index: -1;
   pointer-events: none;
-  opacity: .5;
+  opacity: .85;
 }
-.tech-spiral svg {
-  width: 145vmax;
-  height: 145vmax;
-  transform: rotate(0deg);
-  will-change: transform;
+.dna-back { stroke: var(--ink-soft); }
+.dna-front { stroke: var(--accent); }
+.dna-rung { stroke: var(--accent); }
+
+:root[data-theme="light"] .dna-bg { opacity: .55; }
+
+@media (max-width: 760px) {
+  .dna-bg { width: 130px; right: 50%; transform: translateX(50%); opacity: .3; }
 }
-.tech-spiral path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1;
-  opacity: .3;
-}
-:root[data-theme="light"] .tech-spiral { opacity: .35; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
