@@ -45,3 +45,29 @@ if (scrollHint) {
     scrollHint.style.opacity = window.scrollY > 80 ? '0' : '';
   }, { passive: true });
 }
+
+// DNA-Hintergrund "dreht" sich beim Scrollen. Die Helix selbst steht fix im
+// Viewport — der Dreh-Effekt ist ein Barberpole-Trick: das SVG-Pattern läuft
+// per patternTransform am Element vorbei, das erzeugt für das Auge denselben
+// Eindruck wie eine sich drehende Doppelhelix.
+const dnaPattern = document.getElementById('dna-pattern');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (dnaPattern && !reduceMotion) {
+  let ticking = false;
+
+  const updateDna = () => {
+    const offset = window.scrollY * -0.6;
+    dnaPattern.setAttribute('patternTransform', `translate(0, ${offset})`);
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateDna);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateDna();
+}
