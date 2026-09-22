@@ -7,14 +7,12 @@
   --line: #242c40;
   --accent: #6f8dfb;
   --accent-soft: rgba(111, 141, 251, .14);
-  --accent-2: #c084fc;
-  --accent-3: #ff8f70;
   --header-bg: rgba(9, 12, 19, .75);
   --grid-line: rgba(154, 163, 186, .08);
   --grid-dot: rgba(154, 163, 186, .18);
   --glow-1: rgba(111, 141, 251, .18);
-  --glow-2: rgba(192, 132, 252, .14);
-  --glow-3: rgba(255, 143, 112, .10);
+  --glow-2: rgba(111, 141, 251, .13);
+  --glow-3: rgba(111, 141, 251, .09);
   --shadow: rgba(0, 0, 0, .55);
   --panel: rgba(18, 24, 38, .5);
   --radius: 12px;
@@ -33,14 +31,12 @@
   --line: #e7e5e0;
   --accent: #3454d1;
   --accent-soft: #e8ecfb;
-  --accent-2: #a855f7;
-  --accent-3: #f97362;
   --header-bg: rgba(251, 250, 248, .85);
   --grid-line: rgba(23, 24, 26, .05);
   --grid-dot: rgba(23, 24, 26, .1);
-  --glow-1: rgba(52, 84, 209, .06);
-  --glow-2: rgba(168, 85, 247, .05);
-  --glow-3: rgba(249, 115, 98, .05);
+  --glow-1: rgba(52, 84, 209, .07);
+  --glow-2: rgba(52, 84, 209, .05);
+  --glow-3: rgba(52, 84, 209, .04);
   --shadow: rgba(23, 24, 26, .22);
   --panel: rgba(255, 255, 255, .6);
 }
@@ -82,6 +78,33 @@ body::before {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
+
+/* Spirale: fixiert über der ganzen Seite, dreht sich mit dem Scroll-Fortschritt
+   (siehe main.js). Bewusst monochrom und dünn, damit sie wie eine technische
+   Zeichnung wirkt statt wie Deko. */
+.tech-spiral {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: .5;
+}
+.tech-spiral svg {
+  width: 145vmax;
+  height: 145vmax;
+  transform: rotate(0deg);
+  will-change: transform;
+}
+.tech-spiral path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  opacity: .3;
+}
+:root[data-theme="light"] .tech-spiral { opacity: .35; }
 
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
@@ -228,13 +251,15 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
 .blob--b {
   width: 380px; height: 380px;
   top: -60px; right: -100px;
-  background: radial-gradient(circle, var(--accent-2), transparent 70%);
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  filter: brightness(1.25);
   animation: float-b 26s ease-in-out infinite;
 }
 .blob--c {
   width: 320px; height: 320px;
   bottom: -160px; left: 30%;
-  background: radial-gradient(circle, var(--accent-3), transparent 70%);
+  background: radial-gradient(circle, var(--accent), transparent 70%);
+  filter: brightness(.7);
   animation: float-c 19s ease-in-out infinite;
 }
 
