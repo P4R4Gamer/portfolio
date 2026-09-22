@@ -169,6 +169,11 @@ p { margin: 0 0 1em; color: var(--ink-soft); }
   border-radius: 6px;
 }
 
+.project__links {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
 .project__links a {
   font-size: .88rem;
   font-weight: 600;

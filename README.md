@@ -4,7 +4,7 @@ Persönliche Portfolio-Website. Stellt eine Auswahl an Projekten vor — eigene
 Sachen (Nothrig, Kassensturz) und ein paar kleinere Beispielprojekte, die
 unterschiedliche Skills zeigen sollen.
 
-**[Live-Demo](#)** *(GitHub Pages Link folgt nach dem Deploy)*
+**[Live-Demo](https://p4r4gamer.github.io/portfolio/)**
 
 ## Stack
 
