@@ -83,35 +83,29 @@ body::before {
   position: relative;
 }
 
-/* DNA-Doppelhelix: fix im Viewport zentriert, dreht sich optisch beim Scrollen.
-   Der "Dreh"-Effekt ist ein Barberpole-Trick: das SVG-Pattern selbst bewegt
-   sich per patternTransform schneller als der Rest der Seite (siehe main.js) —
-   dadurch wirkt es, als würde sich die Helix um die eigene Achse drehen.
-   Der 3D-Effekt kommt daher, dass beide Stränge in viele kurze Segmente
-   zerlegt sind, deren Deckkraft/Strichstärke von ihrer "Tiefe" abhängt —
-   vorne breiter und heller, hinten dünner und blasser. */
+/* DNA-Doppelhelix: fix im Viewport zentriert, echtes Partikelsystem auf Canvas
+   (siehe main.js). Die Drehung ist eine echte Rotation — pro Frame wird für
+   jeden Partikel neu berechnet, ob er gerade "vorne" oder "hinten" im Twist
+   ist (Tiefe über die Zeit, nicht nur eine verschobene Textur). Dazu bekommt
+   jeder Partikel einen leichten individuellen Wellen-Versatz. */
 .dna-bg {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 50%;
-  /* width bleibt exakt auf der Pattern-Kachelbreite (240px), damit sie sich
-     nicht horizontal wiederholt — "größer" kommt über scale(), das die
-     Kachel selbst hochskaliert statt sie zu duplizieren. */
-  width: 240px;
-  transform: translateX(-50%) scale(1.55);
+  /* canvas ist ein "replaced element" — top/bottom:0 allein streckt es nicht
+     wie bei einem div, deshalb hier explizit die volle Viewport-Höhe. */
+  height: 100vh;
+  transform: translateX(-50%);
+  width: 340px;
   z-index: -1;
   pointer-events: none;
-  opacity: .8;
+  opacity: .85;
 }
-.dna-back { stroke: var(--ink-soft); }
-.dna-front { stroke: var(--accent); }
-.dna-rung { stroke: var(--accent); }
 
-:root[data-theme="light"] .dna-bg { opacity: .45; }
+:root[data-theme="light"] .dna-bg { opacity: .5; }
 
 @media (max-width: 760px) {
-  .dna-bg { transform: translateX(-50%) scale(1.1); opacity: .4; }
+  .dna-bg { width: 220px; opacity: .4; }
 }
 
 img { max-width: 100%; display: block; }
