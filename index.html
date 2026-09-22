@@ -26,29 +26,40 @@
   <main id="top">
 
     <section class="hero">
+      <div class="hero__blobs" aria-hidden="true">
+        <span class="blob blob--a"></span>
+        <span class="blob blob--b"></span>
+        <span class="blob blob--c"></span>
+      </div>
+      <div class="hero__grid" aria-hidden="true"></div>
+
       <div class="container hero__inner">
-        <p class="eyebrow">Webentwicklung</p>
-        <h1>Ich baue Websites und kleine<br>Web-Apps, die sauber laufen.</h1>
-        <p class="hero__text">
+        <p class="eyebrow hero-in" style="--d:0">Webentwicklung</p>
+        <h1 class="hero-in" style="--d:1">Ich baue Websites und kleine<br>Web-Apps, die sauber laufen.</h1>
+        <p class="hero__text hero-in" style="--d:2">
           Von responsiven Landingpages über kleine interaktive Tools bis zu
           Apps mit echter Datenanbindung — hier ist eine Auswahl an Projekten,
           die zeigt, wie ich arbeite.
         </p>
-        <div class="hero__actions">
+        <div class="hero__actions hero-in" style="--d:3">
           <a href="#projekte" class="btn btn--primary">Projekte ansehen</a>
           <a href="https://github.com/P4R4Gamer" class="btn btn--ghost" target="_blank" rel="noopener">GitHub-Profil</a>
         </div>
       </div>
+
+      <a href="#projekte" class="scroll-hint" aria-label="Zu den Projekten scrollen">
+        <span></span>
+      </a>
     </section>
 
     <section class="projects" id="projekte">
       <div class="container">
-        <p class="section-eyebrow">Ausgewählte Projekte</p>
-        <h2>Projekte</h2>
+        <p class="section-eyebrow reveal">Ausgewählte Projekte</p>
+        <h2 class="reveal">Projekte</h2>
 
         <div class="project-grid">
 
-          <article class="project project--featured">
+          <article class="project project--featured reveal" style="--i:0">
             <div class="project__media">
               <img src="images/kassensturz.jpg" alt="Dashboard der Kassensturz-App mit Saldo, Diagramm und Kategorien" loading="lazy">
               <span class="project__tag project__tag--live">Eigenes Projekt</span>
@@ -71,7 +82,7 @@
             </div>
           </article>
 
-          <article class="project project--featured">
+          <article class="project project--featured reveal" style="--i:1">
             <div class="project__media">
               <img src="images/nothrig.jpg" alt="Startseite der Streetwear-Marke Nothrig" loading="lazy">
               <span class="project__tag">In Arbeit</span>
@@ -92,7 +103,7 @@
             </div>
           </article>
 
-          <article class="project">
+          <article class="project reveal" style="--i:2">
             <div class="project__media">
               <img src="images/nordlicht-fotografie.jpg" alt="Startseite der Beispiel-Website Nordlicht Fotografie" loading="lazy">
               <span class="project__tag">Beispielprojekt</span>
@@ -110,7 +121,7 @@
             </div>
           </article>
 
-          <article class="project">
+          <article class="project reveal" style="--i:3">
             <div class="project__media">
               <img src="images/fokus-timer.jpg" alt="Oberfläche des Fokus-Timers mit Pomodoro-Uhr und Aufgabenliste" loading="lazy">
               <span class="project__tag">Beispielprojekt</span>
@@ -128,7 +139,7 @@
             </div>
           </article>
 
-          <article class="project">
+          <article class="project reveal" style="--i:4">
             <div class="project__media">
               <img src="images/fusion-2048.jpg" alt="Spielfeld des Zahlenpuzzles Fusion mit farbigen Kacheln" loading="lazy">
               <span class="project__tag">Beispielprojekt</span>
@@ -152,7 +163,7 @@
 
     <section class="about" id="ueber-mich">
       <div class="container about__inner">
-        <div>
+        <div class="reveal">
           <p class="section-eyebrow">Über mich</p>
           <h2>Was ich mache</h2>
           <p>
@@ -167,17 +178,17 @@
             teils für mich selbst, teils zusammen mit anderen.
           </p>
         </div>
-        <div class="skills">
+        <div class="skills reveal" style="--i:1">
           <h3>Womit ich arbeite</h3>
           <ul class="skills__list">
-            <li>HTML &amp; CSS</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>React</li>
-            <li>Vite</li>
-            <li>Tailwind CSS</li>
-            <li>Git &amp; GitHub</li>
-            <li>Node.js Basics</li>
+            <li><span class="skill__icon" style="--c:#e34f26">&lt;/&gt;</span>HTML &amp; CSS</li>
+            <li><span class="skill__icon" style="--c:#c9962c">JS</span>JavaScript</li>
+            <li><span class="skill__icon" style="--c:#3178c6">TS</span>TypeScript</li>
+            <li><span class="skill__icon" style="--c:#0ea5c4">⚛</span>React</li>
+            <li><span class="skill__icon" style="--c:#8a5cf6">V</span>Vite</li>
+            <li><span class="skill__icon" style="--c:#0891b2">TW</span>Tailwind CSS</li>
+            <li><span class="skill__icon" style="--c:#f05133">Gi</span>Git &amp; GitHub</li>
+            <li><span class="skill__icon" style="--c:#5faf5f">No</span>Node.js Basics</li>
           </ul>
         </div>
       </div>
@@ -185,12 +196,12 @@
 
     <section class="contact" id="kontakt">
       <div class="container contact__inner">
-        <div>
+        <div class="reveal">
           <p class="section-eyebrow">Kontakt</p>
           <h2>Lass uns reden.</h2>
           <p>Bei Fragen zu einem der Projekte oder generell — meld dich einfach.</p>
         </div>
-        <div class="contact__links">
+        <div class="contact__links reveal" style="--i:1">
           <a href="mailto:tino.meier.tm@gmail.com" class="contact__link">
             <span class="contact__label">E-Mail</span>
             <span class="contact__value">tino.meier.tm@gmail.com</span>
